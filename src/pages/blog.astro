@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "Mon blog d'apprentissage Astro";
 ---
 
@@ -11,10 +13,12 @@ const pageTitle = "Mon blog d'apprentissage Astro";
 		<title>Astro</title>
 	</head>
 	<body>
-    <a href="/">Accueil</a>
-    <a href="/about/">À propos</a>
-    <a href="/blog">Blog</a>
-    
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/about/">À propos</a>
+      <a href="/blog">Blog</a>
+    </nav>
+        
     <h1>{ pageTitle }</h1>
     <p>Voici où je vais publier mon parcours d'apprentissage d'Astro.</p>
 

@@ -1,10 +1,12 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "À propos de moi";
 
 const identity = {
-  firstName: "Sarah",
-  country: "Canada",
-  occupation: "Rédactrice technique",
+  firstName: "Thomas",
+  country: "France",
+  occupation: "Développeur Front-End",
   hobbies: ["photographie", "observation des oiseaux", "baseball"],
 };
 
@@ -13,6 +15,10 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Rédaction de do
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase"
 ---
 
 <html lang="fr">
@@ -22,11 +28,20 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{ pageTitle }</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
 	</head>
 	<body>
-    <a href="/">Accueil</a>
-    <a href="/about/">À propos</a>
-    <a href="/blog">Blog</a>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/about/">À propos</a>
+      <a href="/blog">Blog</a>
+    </nav>
 
 		<h1>{ pageTitle }</h1>
     <h2>... et de mon nouveau site Astro !</h2>
@@ -45,7 +60,7 @@ const goal = 3;
     </ul>
     <p>Voici mes compétences :</p>
     <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {happy && <p>Je suis heureux d'apprendre Astro !</p>}
